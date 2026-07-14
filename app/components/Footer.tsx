@@ -17,6 +17,7 @@ const quickLinks = {
   Projects: '#projects',
   Contact: '#contact',
 };
+
 export default function Footer() {
   return (
     <motion.footer
