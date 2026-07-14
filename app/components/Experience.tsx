@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { experiences } from '../data/experience';
 import { FaBriefcase, FaMapPin, FaCalendar, FaAward } from 'react-icons/fa';
-import { div } from 'framer-motion/client';
 
 export default function Experience() {
   return (
