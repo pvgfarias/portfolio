@@ -70,6 +70,7 @@ export default function Hero() {
       <div className="aurora-bg absolute inset-0" />
       {particles.map((p) => (
         <motion.div
+          suppressHydrationWarning
           key={p.id}
           className="pointer-events-none absolute rounded-full"
           style={{
