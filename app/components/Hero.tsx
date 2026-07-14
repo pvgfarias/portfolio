@@ -139,7 +139,7 @@ export default function Hero() {
           >
             <button
               onClick={() => scrollToSection('#projects')}
-              className="px-8 py-3 bg-linear-to-r from-emerald-600 to-emerald-300 text-white rounded-lg  font-semibold hover:from-blue-600 hover:to-slate-500 transition-all duration-200 transform hover:scale-105 "
+              className="px-8 py-3 bg-emerald-500 text-white rounded-lg  font-semibold hover:bg-blue-50 dark:hover:bg-slate-800 transition-all duration-200"
             >
               Projects
             </button>
