@@ -128,8 +128,8 @@ export default function Hero() {
               {displayed}
               <span className="cursor-blink ml-0.5">|</span>
             </span>{' '}
-            passionate about building scalable applications and applying machine learning to
-            real-world problems.
+            passionate about creating amazing web experiences by building fast, reliable and
+            efficient systems.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
