@@ -40,10 +40,10 @@ const skills = [
     technologies: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'R', 'Tableau', 'Power BI', 'Excel'],
   },
   {
-    category: 'Computer Networks',
+    category: 'Computer Networks & Misc',
     icon: GiNetworkBars,
     color: 'from-gray-500 to-gray-400',
-    technologies: ['C', 'C++', 'Python', 'Wireshark', 'Assembly', 'VHDL', 'Linux CLI'],
+    technologies: ['C', 'C++', 'Python', 'Wireshark', 'Assembly', 'Verilog', 'VHDL', 'Linux CLI'],
   },
   {
     category: 'Tools',
