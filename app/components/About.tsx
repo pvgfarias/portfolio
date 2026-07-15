@@ -13,7 +13,7 @@ const stats = [
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-amber-50 dark:bg-slate-900">
+    <section id="about" className="py-20 bg-white-50 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

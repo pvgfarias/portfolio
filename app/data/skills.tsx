@@ -3,7 +3,7 @@ import { FaArrowTrendUp, FaMicrophone } from 'react-icons/fa6';
 import { LuGitBranch } from 'react-icons/lu';
 import { GiNetworkBars } from 'react-icons/gi';
 
-const skills = [
+export const skills = [
   {
     category: 'Front-end',
     icon: FaCode,
@@ -65,5 +65,3 @@ const skills = [
     ],
   },
 ];
-
-export default skills;
