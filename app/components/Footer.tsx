@@ -2,13 +2,12 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
+import { IconBrandGithub, IconBrandLinkedin, IconMail } from '@tabler/icons-react';
 
 const socialLinks = [
-  { name: 'GitHub', icon: FaGithub, url: 'https://github.com/pvgfarias' },
-  { name: 'LinkedIn', icon: FaLinkedin, url: 'https://linkedin.com/pvgfarias' },
-  { name: 'Email', icon: MdEmail, url: 'mailto:pvgfarias@gmail.com' },
+  { name: 'GitHub', icon: IconBrandGithub, url: 'https://github.com/pvgfarias' },
+  { name: 'LinkedIn', icon: IconBrandLinkedin, url: 'https://linkedin.com/pvgfarias' },
+  { name: 'Email', icon: IconMail, url: 'mailto:pvgfarias@gmail.com' },
 ];
 
 const quickLinks = {
@@ -29,7 +28,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Paulo Farias</h3>
+            <h3 className="text-xl font-bold mb-4">Paulo Iconrias</h3>
             <p className="text-gray-900 dark:text-gray-400">
               Full Stack Developer passionate about creating amazing Web experiences.
             </p>
@@ -70,7 +69,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-center">
           <p className="text-gray-900 dark:text-gray-400">
-            © {new Date().getFullYear()} Paulo Farias. All rights reserved.
+            © {new Date().getFullYear()} Paulo Iconrias. All rights reserved.
           </p>
         </div>
       </div>

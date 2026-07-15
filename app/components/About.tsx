@@ -2,13 +2,12 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { FaAward, FaCoffee } from 'react-icons/fa';
-import { TbTarget } from 'react-icons/tb';
+import { IconAward, IconCoffee, IconTarget } from '@tabler/icons-react';
 
 const stats = [
-  { icon: FaAward, label: 'Projects Completed', value: '20+' },
-  { icon: FaCoffee, label: 'Coffee Cups Downed', value: '1000+' },
-  { icon: TbTarget, label: 'Years Coding', value: '10+' },
+  { icon: IconAward, label: 'Projects Completed', value: '20+' },
+  { icon: IconCoffee, label: 'Coffee Cups Downed', value: '1000+' },
+  { icon: IconTarget, label: 'Years Coding', value: '10+' },
 ];
 
 export default function About() {

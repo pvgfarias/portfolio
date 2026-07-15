@@ -4,7 +4,7 @@ import type { MouseEvent as ReactMouseEvent } from 'react';
 import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
 import Image from 'next/image';
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import { IconExternalLink, IconBrandGithub } from '@tabler/icons-react';
 
 export default function Projects() {
   const handleMouseMove = (e: ReactMouseEvent<HTMLDivElement>) => {
@@ -78,7 +78,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:text-grey-300  dark:hover:text-green-400 transition-colors"
                     >
-                      <FaGithub size={20} />
+                      <IconBrandGithub size={20} />
                       <span>Code</span>
                     </a>
                   )}
@@ -89,7 +89,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:text-grey-300  dark:hover:text-green-400 transition-colors"
                     >
-                      <FaExternalLinkAlt size={20} />
+                      <IconExternalLink size={20} />
                       <span>Live Demo</span>
                     </a>
                   )}

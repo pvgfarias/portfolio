@@ -2,14 +2,17 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { FaDownload } from 'react-icons/fa';
-import { FaEye, FaEyeSlash } from 'react-icons/fa6';
-import { FiFileText } from 'react-icons/fi';
-import { FaExternalLinkAlt } from 'react-icons/fa';
+import {
+  IconDownload,
+  IconEye,
+  IconEyeClosed,
+  IconFileText,
+  IconExternalLink,
+} from '@tabler/icons-react';
 
 export default function Resume() {
   const [isViewing, setIsViewing] = useState(true);
-  const ViewIcon = isViewing ? FaEyeSlash : FaEye;
+  const ViewIcon = isViewing ? IconEyeClosed : IconEye;
   const viewLabel = isViewing ? 'Hide' : 'View';
 
   const handleDownload = () => {
@@ -54,7 +57,7 @@ export default function Resume() {
               <div className="flex flex-row flex-1 justify-between">
                 {/* Ttile */}
                 <div className="flex flex-row justify-center items-center">
-                  <FiFileText className="w-8 h-8 text-emerald-500 dark:text-emerald-400 mr-3" />
+                  <IconFileText className="w-8 h-8 text-emerald-500 dark:text-emerald-400 mr-3" />
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                     Paulo Farias - Resume
                   </h3>
@@ -72,7 +75,7 @@ export default function Resume() {
                     onClick={handleDownload}
                     className="flex items-center justify-center px-6 py-3 border-2 border-green-500 text-green-500 dark:border-emerald-400 dark:text-emerald-400 rounded-lg font-semibold hover:bg-green-500 hover:text-white dark:hover:bg-emerald-400 dark:hover:text-white transition-all duration-200"
                   >
-                    <FaDownload className="w-5 h-5 mr-2" />
+                    <IconDownload className="w-5 h-5 mr-2" />
                     Download
                   </button>
                   <a
@@ -81,7 +84,7 @@ export default function Resume() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center px-6 py-3 bg-slate-700 text-white rounded-lg font-semibold hover:bg-slate-600 transition-all duration-200"
                   >
-                    <FaExternalLinkAlt className="w-5 h-5 mr-2" /> Open
+                    <IconExternalLink className="w-5 h-5 mr-2" /> Open
                   </a>
                 </div>
               </div>

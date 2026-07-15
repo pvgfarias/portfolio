@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { IoIosSend } from 'react-icons/io';
+import { IconSend } from '@tabler/icons-react';
 import { contactInfo } from '../data/contactInfo';
 
 type ContactFormData = {
@@ -175,7 +175,7 @@ export default function Contact() {
                 </>
               ) : (
                 <>
-                  <IoIosSend size={20} className="mr-2" />
+                  <IconSend size={20} className="mr-2" />
                   Send Message
                 </>
               )}

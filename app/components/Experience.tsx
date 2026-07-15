@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { experiences } from '../data/experience';
-import { FaBriefcase, FaMapPin, FaCalendar, FaAward } from 'react-icons/fa';
+import { IconBriefcase, IconMapPin, IconCalendar, IconAward } from '@tabler/icons-react';
 
 export default function Experience() {
   return (
@@ -42,7 +42,7 @@ export default function Experience() {
                 <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
                   <div className="bg-emerald-200 dark:bg-slate-700 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow border border-emerald-100 dark:border-slate-600">
                     <div className="flex items-center mb-3">
-                      <FaBriefcase className="w-5 h-5 text-emerald-500 mr-2" />
+                      <IconBriefcase className="w-5 h-5 text-emerald-500 mr-2" />
                       <span
                         className={`px-3 py-1 rounded-full text-xs font-medium ${
                           experience.type === 'work'
@@ -74,9 +74,9 @@ export default function Experience() {
                     </h4>
 
                     <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      <FaMapPin className="w-4 h-4 mr-1" />
+                      <IconMapPin className="w-4 h-4 mr-1" />
                       <span className="mr-4">{experience.location}</span>
-                      <FaCalendar className="w-4 h-4 mr-1" />
+                      <IconCalendar className="w-4 h-4 mr-1" />
                       <span>{experience.duration}</span>
                     </div>
 
@@ -105,7 +105,7 @@ export default function Experience() {
                     {experience.achievements && (
                       <div>
                         <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
-                          <FaAward className="w-4 h-4 mr-1" />
+                          <IconAward className="w-4 h-4 mr-1" />
                           Key Achievements:
                         </h5>
                         <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">

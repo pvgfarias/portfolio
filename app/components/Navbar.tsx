@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { MdMenu, MdClose } from 'react-icons/md';
+import { IconMenu, IconXMark } from '@tabler/icons-react';
 import Link from 'next/link';
 
 const navLinks = [
@@ -62,7 +62,7 @@ export default function Navbar() {
           </div>
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 dark:text-gray-300">
-              {isOpen ? <MdClose size={24} /> : <MdMenu size={24} />}
+              {isOpen ? <IconXMark size={24} /> : <IconMenu size={24} />}
             </button>
           </div>
         </div>

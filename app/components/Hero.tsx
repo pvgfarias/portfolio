@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaChevronDown } from 'react-icons/fa';
+import { IconChevronDown } from '@tabler/icons-react';
 import Image from 'next/image';
 
 const roles = [
@@ -160,7 +160,7 @@ export default function Hero() {
           className="absolute top-150 left-1/2 transform -translate-x-1/2 hidden md:block"
         >
           <button onClick={() => scrollToSection('#about')} className="animate-bounce">
-            <FaChevronDown className="w-8 h-8 text-gray-600 dark:text-gray-400" />
+            <IconChevronDown className="w-8 h-8 text-gray-600 dark:text-gray-400" />
           </button>
         </motion.div>
       </div>
