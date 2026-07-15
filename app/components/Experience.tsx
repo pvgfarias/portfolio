@@ -40,7 +40,7 @@ export default function Experience() {
 
               <div className={`flex ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
                 <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                  <div className="bg-emerald-50 dark:bg-slate-700 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow border border-emerald-100 dark:border-slate-600">
+                  <div className="bg-emerald-200 dark:bg-slate-700 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow border border-emerald-100 dark:border-slate-600">
                     <div className="flex items-center mb-3">
                       <FaBriefcase className="w-5 h-5 text-emerald-500 mr-2" />
                       <span

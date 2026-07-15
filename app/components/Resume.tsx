@@ -49,7 +49,7 @@ export default function Resume() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-emerald-50 dark:bg-slate-800 rounded-xl p-8 mb-8">
+          <div className="bg-emerald-100 dark:bg-slate-800 rounded-xl p-8 mb-8">
             <div className="flex flex-col gap-4">
               <div className="flex flex-row flex-1 justify-between">
                 {/* Ttile */}

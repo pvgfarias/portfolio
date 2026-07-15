@@ -5,6 +5,57 @@
   --foreground: #171717;
 }
 
+@keyframes aurora {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.aurora-bg {
+  background: linear-gradient(-45deg, #ffffff, #f4fff5, #f3ffee, #d6ffcc, #d6ffd8);
+  background-size: 300% 300%;
+  animation: aurora 12s ease infinite;
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.project-card .spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(22, 56, 249, 0.089),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+.project-card:hover .spotlight {
+  opacity: 1;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -16,6 +67,12 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+
+  .aurora-bg {
+    background: linear-gradient(-45deg, #09081c, #0a051f, #090212, #05051a, #080f1c);
+    background-size: 300% 300%;
+    animation: aurora 12s ease infinite;
   }
 }
 

@@ -24,23 +24,26 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-slate-900 text-white py-12"
+      className="bg-emerald-200 dark:bg-slate-900 text-gray-700 dark:text-white py-12"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4">Paulo Farias</h3>
-            <p className="text-gray-400">
+            <p className="text-gray-900 dark:text-gray-400">
               Full Stack Developer passionate about creating amazing Web experiences.
             </p>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {Object.entries(quickLinks).map(([label, url]) => (
                 <li key={label}>
-                  <Link href={url} className="text-gray-400 hover:text-white transition-colors">
+                  <Link
+                    href={url}
+                    className="text-gray-900 dark:text-gray-400 hover:text-white transition-colors"
+                  >
                     {label}
                   </Link>
                 </li>
@@ -49,7 +52,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Connect</h4>
+            <h4 className="text-lg font-bold mb-4">Connect</h4>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
                 <Link
@@ -57,7 +60,7 @@ export default function Footer() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-900 hover:text-gray-400 dark:text-gray-400 dark:hover:text-white transition-colors"
                 >
                   <link.icon size={24} />
                 </Link>
@@ -66,7 +69,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-          <p className="text-gray-400">
+          <p className="text-gray-900 dark:text-gray-400">
             © {new Date().getFullYear()} Paulo Farias. All rights reserved.
           </p>
         </div>

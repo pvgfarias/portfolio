@@ -42,7 +42,10 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
+          <Link
+            href="/"
+            className="text-2xl font-bold text-gray-900  hover:text-emerald-500 dark:text-white transition-colors duration-200"
+          >
             Paulo Farias
           </Link>
           {/* Web Nav */}
@@ -51,7 +54,7 @@ export default function Navbar() {
               <button
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-slate-400 transition-colors duration-200"
+                className="text-gray-700 dark:text-gray-300 hover:text-emerald-500 transition-colors duration-200"
               >
                 {link.name}
               </button>
