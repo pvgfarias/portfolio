@@ -3,7 +3,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  color-scheme: light;
 }
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  color-scheme: dark;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @keyframes aurora {
   0% {
@@ -63,17 +72,10 @@
   --font-mono: var(--font-ubuntu-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-
-  .aurora-bg {
-    background: linear-gradient(-45deg, #09081c, #0a051f, #090212, #05051a, #080f1c);
-    background-size: 300% 300%;
-    animation: aurora 12s ease infinite;
-  }
+.dark .aurora-bg {
+  background: linear-gradient(-45deg, #09081c, #0a051f, #090212, #05051a, #080f1c);
+  background-size: 300% 300%;
+  animation: aurora 12s ease infinite;
 }
 
 body {

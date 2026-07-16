@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { IconMenu, IconXMark } from '@tabler/icons-react';
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -23,8 +24,12 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleNavClick = (href: string) => {
@@ -49,16 +54,17 @@ export default function Navbar() {
             Paulo Farias
           </Link>
           {/* Web Nav */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-8 justify-center items-center">
             {navLinks.map((link) => (
               <button
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
-                className="text-gray-700 dark:text-gray-300 hover:text-emerald-500 transition-colors duration-200"
+                className="text-gray-700 dark:text-gray-300 hover:text-emerald-500 cursor-pointer transition-colors duration-200"
               >
                 {link.name}
               </button>
             ))}
+            <ThemeToggle />
           </div>
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 dark:text-gray-300">

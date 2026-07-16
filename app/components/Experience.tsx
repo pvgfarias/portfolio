@@ -3,7 +3,14 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { experiences } from '../data/experience';
-import { IconBriefcase, IconMapPin, IconCalendar, IconAward } from '@tabler/icons-react';
+import {
+  IconBriefcase,
+  IconMapPin,
+  IconCalendar,
+  IconAward,
+  IconSchool,
+  IconUserCircle,
+} from '@tabler/icons-react';
 
 export default function Experience() {
   return (
@@ -42,7 +49,16 @@ export default function Experience() {
                 <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
                   <div className="bg-emerald-200 dark:bg-slate-700 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow border border-emerald-100 dark:border-slate-600">
                     <div className="flex items-center mb-3">
-                      <IconBriefcase className="w-5 h-5 text-emerald-500 mr-2" />
+                      {experience.type === 'work' ? (
+                        <IconBriefcase className="w-5 h-5 text-emerald-500 mr-2" />
+                      ) : experience.type === 'internship' ? (
+                        <IconUserCircle className="w-5 h-5 text-emerald-500 mr-2" />
+                      ) : experience.type === 'education' ? (
+                        <IconSchool className="w-5 h-5 text-emerald-500 mr-2" />
+                      ) : (
+                        ''
+                      )}
+
                       <span
                         className={`px-3 py-1 rounded-full text-xs font-medium ${
                           experience.type === 'work'
@@ -67,7 +83,7 @@ export default function Experience() {
                           alt={`${experience.company} logo`}
                           width={40}
                           height={40}
-                          className="object-contain rounded"
+                          className="object-contain rounded h-8 w-8 bg-white"
                         />
                       )}{' '}
                       {experience.company}
