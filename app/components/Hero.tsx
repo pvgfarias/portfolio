@@ -4,7 +4,34 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { IconChevronDown } from '@tabler/icons-react';
 import Image from 'next/image';
+import { useLanguage } from '../hooks/useLanguage';
 
+const content = {
+  en: {
+    roles: [
+      'Full Stack Web Developer',
+      'Data Analyst',
+      'Data Visualization Specialist',
+      'Software Engineering Researcher',
+    ],
+    description:
+      'passionate about creating amazing web experiences by building fast, reliable and efficient systems.',
+    projects: 'Projects',
+    contact: 'Contact Me',
+  },
+  pt: {
+    roles: [
+      'Desenvolvedor Web Full Stack',
+      'Analista de Dados',
+      'Especialista em Visualização de Dados',
+      'Pesquisador em Engenharia de Software',
+    ],
+    description:
+      'apaixonado por criar experiências web incríveis através do desenvolvimento de sistemas rápidos, confiáveis ​​e eficientes.',
+    projects: 'Projetos',
+    contact: 'Contato',
+  },
+};
 const roles = [
   'Full Stack Web Developer',
   'Data Analyst',
@@ -32,11 +59,15 @@ export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayed, setDisplayed] = useState('');
   const [deleting, setDeleting] = useState(false);
+  const { language } = useLanguage();
   const [particles] = useState<ReturnType<typeof makeParticles>>(() => makeParticles());
+  const t = content[language];
 
   useEffect(() => {
-    const role = roles[roleIndex];
+    const role = language === 'en' ? content.en.roles[roleIndex] : content.pt.roles[roleIndex];
+
     let t: ReturnType<typeof setTimeout>;
+
     if (!deleting && displayed === role) {
       t = setTimeout(() => setDeleting(true), 2000);
     } else if (deleting && displayed === '') {
@@ -128,9 +159,8 @@ export default function Hero() {
             <span className="font-semibold text-emerald-400 font-mono">
               {displayed}
               <span className="cursor-blink ml-0.5">|</span>
-            </span>{' '}
-            passionate about creating amazing web experiences by building fast, reliable and
-            efficient systems.
+            </span>
+            {t.description}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -142,13 +172,13 @@ export default function Hero() {
               onClick={() => scrollToSection('#projects')}
               className="px-8 py-3 bg-emerald-500 text-white rounded-lg  font-semibold hover:bg-blue-50 dark:hover:bg-slate-800 transition-all duration-200"
             >
-              Projects
+              {t.projects}
             </button>
             <button
               onClick={() => scrollToSection('#contact')}
               className="px-8 py-3 border-2 border-emerald-400 text-emerald-400 rounded-lg font-semibold hover:bg-blue-50 dark:hover:bg-slate-800 transition-all duration-200"
             >
-              Contact Me
+              {t.contact}
             </button>
           </motion.div>
         </motion.div>

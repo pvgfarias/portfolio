@@ -3,14 +3,44 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { IconAward, IconCoffee, IconTarget } from '@tabler/icons-react';
+import { useLanguage } from '../hooks/useLanguage';
 
 const stats = [
-  { icon: IconAward, label: 'Projects Completed', value: '20+' },
-  { icon: IconCoffee, label: 'Coffee Cups Downed', value: '1000+' },
-  { icon: IconTarget, label: 'Years Coding', value: '10+' },
+  { icon: IconAward, label: 'Projects Completed', ptLabel: 'Projetos Completados', value: '20+' },
+  { icon: IconCoffee, label: 'Coffee Cups Downed', ptLabel: 'Cafés Tomados', value: '1000+' },
+  { icon: IconTarget, label: 'Years Coding', ptLabel: 'Anos Codando', value: '10+' },
 ];
 
+const content = {
+  en: {
+    about: 'About Me',
+    aboutText:
+      'I&apos;m a passionate full-stack web developer and master in computer systems focused on building scalable, user-centric applications, aiming to leverage modern technologies to solve real-world problems.',
+    myJourney: 'My Journey',
+    journey:
+      'From a young age, I have been passionate about video games, computers, and mathematics, and that passion has only grown stronger over time. At the age of seventeen, I was accepted into the University of Brasília (UnB), one of Brazil&apos;s top universities, where I earned a Bachelor&apos;s degree in Computer Science. I later continued my studies at UnB during the pandemic, completing a Master&apos;s degree in Computer Systems.',
+    myApproach: 'My Approach',
+    approach:
+      'I always approach every project with attention to the target audience and how I can                 improve their user experience. I am dedicated to writing clean code that is built to                 last, while also employing cutting-edge technologies.',
+  },
+  pt: {
+    about: 'Sobre Mim',
+    aboutText:
+      'Sou um desenvolvedor full stack com um mestrado em sistemas de computadores, meu foco é criar aplicações escaláveis, orientadas ao usuários, com o objeitvo de utilizar tecnologias modernas para resolver problemas do mundo real',
+    myJourney: 'Minha Jornada',
+    journey:
+      'Desde cedo, sempre fui apaixonado por videogames, computadores e matemática, e essa paixão só se fortaleceu com o tempo. Aos dezessete anos, fui aprovado na Universidade de Brasília (UnB), uma das principais universidades do país, onde me formei em Ciência da Computação. Mais tarde, dei continuidade aos meus estudos na UnB durante a pandemia, concluindo o mestrado em Sistemas de Computação.',
+    myApproach: 'Minha Abordagem',
+    approach:
+      'Sempre abordo cada projeto levando em conta o público-alvo e como posso aprimorar a experiência do usuário. Dedico-me a escrever código limpo e duradouro, utilizando tecnologias de ponta.',
+  },
+};
+
 export default function About() {
+  const { language } = useLanguage();
+
+  const t = content[language];
+
   return (
     <section id="about" className="py-20 bg-white-50 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,12 +52,10 @@ export default function About() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            About Me
+            {t.about}
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            I&apos;m a passionate full-stack web developer and master in computer systems focused on
-            building scalable, user-centric applications, aiming to leverage modern technologies to
-            solve real-world problems.
+            {t.aboutText}
           </p>
         </motion.div>
 
@@ -52,23 +80,16 @@ export default function About() {
             className="space-y-6"
           >
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">My Journey</h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                From a young age, I have been passionate about video games, computers, and
-                mathematics, and that passion has only grown stronger over time. At the age of
-                seventeen, I was accepted into the University of Brasília (UnB), one of
-                Brazil&apos;s top universities, where I earned a Bachelor&apos;s degree in Computer
-                Science. I later continued my studies at UnB during the pandemic, completing a
-                Master&apos;s degree in Computer Systems.
-              </p>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                {t.myJourney}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{t.journey}</p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">My Approach</h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                I always approach every project with attention to the target audience and how I can
-                improve their user experience. I am dedicated to writing clean code that is built to
-                last, while also employing cutting-edge technologies.
-              </p>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                {t.myApproach}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{t.approach}</p>
             </div>
             <div className="grid grid-cols-3 gap-4 pt-6">
               {stats.map((stat, index) => (
@@ -85,7 +106,9 @@ export default function About() {
                     <div className="text-2xl font-bold text-gray-900 dark:text-white">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">
+                      {language === 'en' ? stat.label : stat.ptLabel}
+                    </div>
                   </div>
                 </motion.div>
               ))}

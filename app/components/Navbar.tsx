@@ -5,20 +5,23 @@ import { motion } from 'framer-motion';
 import { IconMenu, IconXMark } from '@tabler/icons-react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
+import LanguageToggle from './LanguageToggle';
+import { useLanguage } from '../hooks/useLanguage';
 
 const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Resume', href: '#resume' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', ptName: 'Início', href: '#home' },
+  { name: 'About', ptName: 'Sobre', href: '#about' },
+  { name: 'Experience', ptName: 'Experiência', href: '#experience' },
+  { name: 'Skills', ptName: 'Habilidades', href: '#skills' },
+  { name: 'Projects', ptName: 'Projetos', href: '#projects' },
+  { name: 'Resume', ptName: 'Currículo', href: '#resume' },
+  { name: 'Contact', ptName: 'Contato', href: '#contact' },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,10 +64,11 @@ export default function Navbar() {
                 onClick={() => handleNavClick(link.href)}
                 className="text-gray-700 dark:text-gray-300 hover:text-emerald-500 cursor-pointer transition-colors duration-200"
               >
-                {link.name}
+                {language === 'en' ? link.name : link.ptName}
               </button>
             ))}
             <ThemeToggle />
+            <LanguageToggle />
           </div>
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 dark:text-gray-300">
@@ -88,7 +92,7 @@ export default function Navbar() {
                   onClick={() => handleNavClick(link.href)}
                   className="block w-full text-left px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-slate-400"
                 >
-                  {link.name}
+                  {language === 'en' ? link.name : link.ptName}
                 </button>
               ))}
             </div>
