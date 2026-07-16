@@ -11,8 +11,27 @@ import {
   IconSchool,
   IconUserCircle,
 } from '@tabler/icons-react';
+import { useLanguage } from '../hooks/useLanguage';
+
+const content = {
+  en: {
+    experience: 'Experience',
+    description: 'My professional journey and education',
+    technologies: 'Technologies:',
+    achievements: 'Key Achievements:',
+  },
+  pt: {
+    experience: 'Experiência',
+    description: 'Minha experiência profissional e educação',
+    technologies: 'Tecnologias:',
+    achievements: 'Principais Conquistas:',
+  },
+};
 
 export default function Experience() {
+  const { language } = useLanguage();
+  const t = content[language];
+
   return (
     <section id="experience" className="py-20 bg-emerald-50 dark:bg-slate-900">
       <div className="container mx-auto px-6">
@@ -23,9 +42,9 @@ export default function Experience() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Experience</h2>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">{t.experience}</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            My professional journey and education
+            {t.description}
           </p>
         </motion.div>
 
@@ -70,11 +89,11 @@ export default function Experience() {
                                 : 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
                         }`}
                       >
-                        {experience.type}
+                        {language === 'en' ? experience.type : experience.ptType}
                       </span>
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                      {experience.title}
+                      {language === 'en' ? experience.title : experience.ptTitle}
                     </h3>
                     <h4 className="text-lg font-semibold text-green-500 dark:text-emerald-400 mb-2 flex items-center gap-2">
                       {experience.logo && (
@@ -86,24 +105,26 @@ export default function Experience() {
                           className="object-contain rounded h-8 w-8 bg-white"
                         />
                       )}{' '}
-                      {experience.company}
+                      {language === 'en' ? experience.company : experience.ptCompany}
                     </h4>
 
                     <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
                       <IconMapPin className="w-4 h-4 mr-1" />
-                      <span className="mr-4">{experience.location}</span>
+                      <span className="mr-4">
+                        {language === 'en' ? experience.location : experience.ptLocation}
+                      </span>
                       <IconCalendar className="w-4 h-4 mr-1" />
-                      <span>{experience.duration}</span>
+                      <span>{language === 'en' ? experience.duration : experience.ptDuration}</span>
                     </div>
 
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
-                      {experience.description}
+                      {language === 'en' ? experience.description : experience.ptDescription}
                     </p>
 
                     {experience.technologies && (
                       <div className="mb-4">
                         <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                          Technologies:
+                          {t.technologies}
                         </h5>
                         <div className="flex flex-wrap gap-2">
                           {experience.technologies.map((tech) => (
@@ -118,19 +139,26 @@ export default function Experience() {
                       </div>
                     )}
 
-                    {experience.achievements && (
+                    {experience.achievements && experience.ptAchievements && (
                       <div>
                         <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
                           <IconAward className="w-4 h-4 mr-1" />
-                          Key Achievements:
+                          {t.achievements}
                         </h5>
                         <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                          {experience.achievements.map((achievement, idx) => (
-                            <li key={idx} className="flex items-start">
-                              <span className="text-emerald-500 mr-2">•</span>
-                              {achievement}
-                            </li>
-                          ))}
+                          {language === 'en'
+                            ? experience.achievements.map((achievement, idx) => (
+                                <li key={idx} className="flex items-start">
+                                  <span className="text-emerald-500 mr-2">•</span>
+                                  {achievement}
+                                </li>
+                              ))
+                            : experience.ptAchievements.map((achievement, idx) => (
+                                <li key={idx} className="flex items-start">
+                                  <span className="text-emerald-500 mr-2">•</span>
+                                  {achievement}
+                                </li>
+                              ))}
                         </ul>
                       </div>
                     )}
