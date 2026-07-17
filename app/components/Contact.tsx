@@ -23,6 +23,8 @@ const content = {
     message: 'Message',
     sending: 'Sending',
     sendMessage: 'Send Message',
+    copyFallback: "Email client didn't open? Copy pvgfarias@gmail.com",
+    copied: 'Copied!',
   },
   pt: {
     title: 'Contato',
@@ -34,6 +36,8 @@ const content = {
     message: 'Mensagem',
     sending: 'Enviando',
     sendMessage: 'Enviar Mensagem',
+    copyFallback: 'O cliente de e-mail não abriu? Copiar pvgfarias@gmail.com',
+    copied: 'Copiado!',
   },
 };
 
@@ -45,6 +49,18 @@ export default function Contact() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('pvgfarias@gmail.com');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Clipboard copy failed:', err);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,9 +75,10 @@ export default function Contact() {
 
     // Open email client
     window.location.href = mailtoLink;
-
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
+    setTimeout(() => {
+      setFormData({ name: '', email: '', message: '' });
+      setIsSubmitting(false);
+    }, 1000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -75,7 +92,7 @@ export default function Contact() {
   const t = content[language];
 
   return (
-    <section id="contact" className="py-20 bg-white-50 dark:bg-slate-800">
+    <section id="contact" className="py-20 bg-white dark:bg-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -138,7 +155,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-70 dark:text-gray-300 mb-2"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
               >
                 {t.name}
               </label>
@@ -155,12 +172,12 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-70 dark:text-gray-300 mb-2"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
               >
                 Email
               </label>
               <input
-                type="text"
+                type="email"
                 id="email"
                 name="email"
                 value={formData.email}
@@ -172,7 +189,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-70 dark:text-gray-300 mb-2"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
               >
                 {t.message}
               </label>
@@ -203,6 +220,13 @@ export default function Contact() {
                   {t.sendMessage}
                 </>
               )}
+            </button>
+            <button
+              type="button"
+              onClick={handleCopyEmail}
+              className="w-full mt-3 flex items-center justify-center px-6 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+            >
+              {copied ? t.copied : t.copyFallback}
             </button>
           </motion.form>
         </div>

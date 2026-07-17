@@ -35,12 +35,12 @@ export const experiences: Experience[] = [
       'Atuei na coleta, no processamento e na validação de dados relacionados a setores de ciências da vida, como hospitais, assistência à saúde e indústria farmacêutica.',
     technologies: ['Python', 'SQL', 'R', 'Tableau', 'Power B.I'],
     achievements: [
-      'Integral to the team of primary research',
-      'Built automated data cleaning systems to facilitate',
+      'Integral to the team of primary research.',
+      'Built automated data cleaning systems to facilitate with data visualization.',
     ],
     ptAchievements: [
       'Parte integrante da equipe de pesquisa primária',
-      'Desenvolveu sistemas automatizados de limpeza de dados para facilitar',
+      'Desenvolveu sistemas automatizados de limpeza de dados para facilitar na visualização de dados.',
     ],
     type: 'work',
     ptType: 'trabalho',
@@ -83,7 +83,7 @@ export const experiences: Experience[] = [
       'Trabalhei com outros pesquisadores e professores para aprender e implementar Redes Definidas por Software (SDN) no projeto P4Sec: Protegendo Redes na Era do Plano de Dados Programável.',
     technologies: ['Linux CLI', 'Python', 'Bash', 'Network Protocols', 'Wireshark', 'LaTeX'],
     achievements: [
-      ' I assisted with data collection and processing using Python and R.',
+      'I assisted with data collection and processing using Python and R.',
       'Writing scientific articles using LaTeX.',
     ],
     ptAchievements: [
@@ -103,7 +103,7 @@ export const experiences: Experience[] = [
     location: 'Brasília - DF, Brazil',
     ptLocation: 'Brasília - DF',
     duration: 'August 2016 - July 2017',
-    ptDuration: 'Agosto 2016 - Julho 2016',
+    ptDuration: 'Agosto 2016 - Julho 2017',
     description:
       'Worked along other interns to develop UnBAlerta, a website and Android app that uses Django/Python/REST APIs and other technologies. The goal of the app was to alert users about dangerous situations in the campus of the University of Brasília (UnB).',
     ptDescription:

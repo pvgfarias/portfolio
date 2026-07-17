@@ -15,7 +15,7 @@ const content = {
   en: {
     about: 'About Me',
     aboutText:
-      'I&apos;m a passionate full-stack web developer and master in computer systems focused on building scalable, user-centric applications, aiming to leverage modern technologies to solve real-world problems.',
+      "I\'m a passionate full-stack web developer and master in computer systems focused on building scalable, user-centric applications, aiming to leverage modern technologies to solve real-world problems.",
     myJourney: 'My Journey',
     journey:
       'From a young age, I have been passionate about video games, computers, and mathematics, and that passion has only grown stronger over time. At the age of seventeen, I was accepted into the University of Brasília (UnB), one of Brazil&apos;s top universities, where I earned a Bachelor&apos;s degree in Computer Science. I later continued my studies at UnB during the pandemic, completing a Master&apos;s degree in Computer Systems.',
@@ -42,7 +42,7 @@ export default function About() {
   const t = content[language];
 
   return (
-    <section id="about" className="py-20 bg-white-50 dark:bg-slate-900">
+    <section id="about" className="py-20 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

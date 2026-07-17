@@ -34,12 +34,6 @@ const content = {
     contact: 'Contato',
   },
 };
-const roles = [
-  'Full Stack Web Developer',
-  'Data Analyst',
-  'Data Visualization Specialist',
-  'Software Engineering Researcher',
-];
 
 const COLORS = ['#c9fb24', '#7ffb3c', '#16f978', '#e0fd8a', '#74fd9d'];
 
@@ -75,7 +69,7 @@ export default function Hero() {
     } else if (deleting && displayed === '') {
       t = setTimeout(() => {
         setDeleting(false);
-        setRoleIndex((i) => (i + 1) % roles.length);
+        setRoleIndex((i) => (i + 1) % content.en.roles.length);
       }, 0);
     } else {
       t = setTimeout(
@@ -136,7 +130,7 @@ export default function Hero() {
               width={250}
               height={250}
               className="rounded-full border-4 border-emerald-400"
-              loading="lazy"
+              loading="eager"
             />
           </div>
 
@@ -172,13 +166,13 @@ export default function Hero() {
           >
             <button
               onClick={() => scrollToSection('#projects')}
-              className="px-8 py-3 bg-emerald-500 text-white rounded-lg  font-semibold hover:bg-blue-50 dark:hover:bg-slate-800 transition-all duration-200"
+              className="px-8 py-3 bg-emerald-500 text-white rounded-lg  font-semibold hover:bg-emerald-6 00 dark:hover:bg-slate-800 transition-all duration-200"
             >
               {t.projects}
             </button>
             <button
               onClick={() => scrollToSection('#contact')}
-              className="px-8 py-3 border-2 border-emerald-400 text-emerald-400 rounded-lg font-semibold hover:bg-blue-50 dark:hover:bg-slate-800 transition-all duration-200"
+              className="px-8 py-3 border-2 border-emerald-400 text-emerald-400 rounded-lg font-semibold hover:bg-emerald-50 dark:hover:bg-slate-800 transition-all duration-200"
             >
               {t.contact}
             </button>

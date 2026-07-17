@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en" className={`${ubuntuSans.variable} ${ubuntuMono.variable} antialiased`}>
       <body>
         <Navbar />
-        <div className="min-h-screen bg-white-50 dark:bg-slate-950">
+        <div className="min-h-screen bg-white dark:bg-slate-950">
           <main className="relative">{children}</main>
         </div>
         <Footer />
