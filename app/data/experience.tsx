@@ -78,7 +78,7 @@ export const experiences: Experience[] = [
     duration: 'September 2019 - February 2022',
     ptDuration: 'Setembro 2019 - Fevereiro 2022',
     description:
-      'Trabalhei com outros pesquisadores e professores para aprender e implementar Redes Definidas por Software (SDN) no projeto P4Sec: Protegendo Redes na Era do Plano de Dados Programável.',
+      'I worked with other researchers and professors to learn about and implement Software-Defined Networking (SDN) in the P4Sec project: Securing Networks in the Era of the Programmable Data Plane.',
     ptDescription:
       'Trabalhei com outros pesquisadores e professores para aprender e implementar Redes Definidas por Software (SDN) no projeto P4Sec: Protegendo Redes na Era do Plano de Dados Programável.',
     technologies: ['Linux CLI', 'Python', 'Bash', 'Network Protocols', 'Wireshark', 'LaTeX'],

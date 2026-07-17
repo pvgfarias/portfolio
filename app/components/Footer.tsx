@@ -4,10 +4,11 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { IconBrandGithub, IconBrandLinkedin, IconMail } from '@tabler/icons-react';
 import { useLanguage } from '../hooks/useLanguage';
+import { useEffect, useState } from 'react';
 
 const socialLinks = [
   { name: 'GitHub', icon: IconBrandGithub, url: 'https://github.com/pvgfarias' },
-  { name: 'LinkedIn', icon: IconBrandLinkedin, url: 'https://linkedin.com/pvgfarias' },
+  { name: 'LinkedIn', icon: IconBrandLinkedin, url: 'https://linkedin.com/in/pvgfarias' },
   { name: 'Email', icon: IconMail, url: 'mailto:pvgfarias@gmail.com' },
 ];
 
@@ -38,6 +39,26 @@ const content = {
 export default function Footer() {
   const { language } = useLanguage();
   const t = content[language];
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleNavClick = (href: string) => {
+    setIsOpen(false);
+    const element = document.querySelector(href);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <motion.footer
@@ -58,12 +79,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
+                  <button
+                    onClick={() => handleNavClick(link.href)}
                     className="text-gray-900 dark:text-gray-400 hover:text-white transition-colors"
                   >
                     {language === 'en' ? link.name : link.ptName}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
