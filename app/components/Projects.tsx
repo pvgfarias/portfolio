@@ -5,8 +5,22 @@ import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
 import Image from 'next/image';
 import { IconExternalLink, IconBrandGithub } from '@tabler/icons-react';
+import { useLanguage } from '../hooks/useLanguage';
 
+const content = {
+  en: {
+    title: 'Project',
+    description: 'Here are some recent projects showcasing my skills and experience',
+  },
+  pt: {
+    title: 'Projetos',
+    description: 'Aqui estão alguns projetos mostrando minhas habilidades e experiência',
+  },
+};
 export default function Projects() {
+  const { language } = useLanguage();
+  const t = content[language];
+
   const handleMouseMove = (e: ReactMouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -15,6 +29,7 @@ export default function Projects() {
     e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
     e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
   };
+
   return (
     <section id="projects" className="py-20 bg-white dark:bg-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,10 +41,10 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Projects
+            {t.title}
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Here are some recent projects showcasing my skills and experience
+            {t.description}
           </p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

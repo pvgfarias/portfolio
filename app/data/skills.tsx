@@ -9,7 +9,8 @@ import {
 
 export const skills = [
   {
-    category: 'Front-end',
+    category: 'Frontend',
+    ptCategory: 'Frontend',
     icon: IconCode,
     color: 'from-blue-500 to-blue-400',
     technologies: [
@@ -21,9 +22,19 @@ export const skills = [
       'Vue.js',
       'Nuxt',
     ],
+    ptTechnologies: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'Framer Motion',
+      'Vue.js',
+      'Nuxt',
+    ],
   },
   {
-    category: 'Back-end',
+    category: 'Backend',
+    ptCategory: 'Backend',
     icon: IconDatabase,
     color: 'from-green-600 to-green-500',
     technologies: [
@@ -36,27 +47,53 @@ export const skills = [
       'Sequelize',
       'Better Auth',
     ],
+    ptTechnologies: [
+      'Node.js',
+      'Express',
+      'Função Sem Servidor',
+      'Rest APIs',
+      'Prisma',
+      'GraphQL',
+      'Sequelize',
+      'Better Auth',
+    ],
   },
   {
     category: 'Data Analysis',
+    ptCategory: 'Análise de Dados',
     icon: IconTrendingUp,
     color: 'from-yellow-600 to-yellow-500',
     technologies: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'R', 'Tableau', 'Power BI', 'Excel'],
+    ptTechnologies: [
+      'Python',
+      'Pandas',
+      'NumPy',
+      'Matplotlib',
+      'R',
+      'Tableau',
+      'Power BI',
+      'Excel',
+    ],
   },
   {
     category: 'Computer Networks & Misc',
+    ptCategory: 'Redes de Computadores & Outros',
     icon: IconNetwork,
     color: 'from-gray-500 to-gray-400',
     technologies: ['C', 'C++', 'Python', 'Wireshark', 'Assembly', 'Verilog', 'VHDL', 'Linux CLI'],
+    ptTechnologies: ['C', 'C++', 'Python', 'Wireshark', 'Assembly', 'Verilog', 'VHDL', 'Linux CLI'],
   },
   {
     category: 'Tools',
+    ptCategory: 'Ferramentas',
     icon: IconGitBranch,
     color: 'from-red-400 to-red-500',
     technologies: ['Git', 'GitHub', 'VS Code', 'Docker', 'Vercel', 'CI/CD', 'Linux CLI', 'Figma'],
+    ptTechnologies: ['Git', 'GitHub', 'VS Code', 'Docker', 'Vercel', 'CI/CD', 'Linux CLI', 'Figma'],
   },
   {
     category: 'Soft Skills',
+    ptCategory: 'Habilidades Interpessoais',
     icon: IconMicrophone,
     color: 'from-indigo-500 to-indigo-600',
     technologies: [
@@ -66,6 +103,14 @@ export const skills = [
       'Problem Solving',
       'Adaptability',
       'Mentorship',
+    ],
+    ptTechnologies: [
+      'Colaboração em equipe',
+      'Oratória',
+      'Gestão de projetos',
+      'Resolução de problemas',
+      'Adaptabilidade',
+      'Mentoria',
     ],
   },
 ];

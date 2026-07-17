@@ -8,6 +8,7 @@ import { useLanguage } from '../hooks/useLanguage';
 
 const content = {
   en: {
+    intro: 'Hey there, I&apos;m ',
     roles: [
       'Full Stack Web Developer',
       'Data Analyst',
@@ -20,6 +21,7 @@ const content = {
     contact: 'Contact Me',
   },
   pt: {
+    intro: 'Olá, me chamo ',
     roles: [
       'Desenvolvedor Web Full Stack',
       'Analista de Dados',
@@ -144,7 +146,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6"
           >
-            Hey there, I&apos;m{' '}
+            {t.intro}
             <span className="bg-linear-to-r from-emerald-400 to-lime-200 bg-clip-text text-transparent">
               Paulo Farias
             </span>

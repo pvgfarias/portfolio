@@ -1,8 +1,24 @@
 'use client';
 import { skills } from '../data/skills';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../hooks/useLanguage';
 
+const content = {
+  en: {
+    skills: 'Technical Skills',
+    description:
+      'I work and have worked with several technologies to build high-quality applications.',
+  },
+  pt: {
+    skills: 'Habilidades Técnicas',
+    description:
+      'Trabalho e já trabalhei com diversas tecnologias para desenvolver aplicações de alta qualidade.',
+  },
+};
 export default function Skills() {
+  const { language } = useLanguage();
+  const t = content[language];
+
   return (
     <section id="skills" className="py-20 bg-white-50 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,10 +30,10 @@ export default function Skills() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Technical Skills
+            {t.skills}
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            I work and have worked with several technologies to build high-quality applications.
+            {t.description}
           </p>
         </motion.div>
 
@@ -36,18 +52,27 @@ export default function Skills() {
                   <skill.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="ml-4 text-xl font-bold text-gray-900 dark:text-white">
-                  {skill.category}
+                  {language === 'en' ? skill.category : skill.ptCategory}
                 </h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {skill.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                {language === 'en'
+                  ? skill.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))
+                  : skill.ptTechnologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
               </div>
             </motion.div>
           ))}

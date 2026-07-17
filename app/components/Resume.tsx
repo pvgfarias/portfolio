@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useLanguage } from '../hooks/useLanguage';
 import {
   IconDownload,
   IconEye,
@@ -10,10 +11,28 @@ import {
   IconExternalLink,
 } from '@tabler/icons-react';
 
+const content = {
+  en: {
+    title: 'Resume',
+    description: 'Download or view my resume to learn more about my experience and qualifications.',
+    preview: 'Resume Preview',
+    previewDescription: 'Click -Download- for the full version',
+  },
+  pt: {
+    title: 'Currículo',
+    description:
+      'Faça o download ou veja meu currículo para saber mais sobre minha experiência e qualificações.',
+    preview: 'Prévia do Currículo',
+    previewDescription: 'Clique em -Download- para ver a versão completa',
+  },
+};
+
 export default function Resume() {
   const [isViewing, setIsViewing] = useState(true);
   const ViewIcon = isViewing ? IconEyeClosed : IconEye;
   const viewLabel = isViewing ? 'Hide' : 'View';
+  const { language } = useLanguage();
+  const t = content[language];
 
   const handleDownload = () => {
     const link = document.createElement('a');
@@ -39,10 +58,10 @@ export default function Resume() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Resume
+            {t.title}
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Download or view my resume to learn more about my experience and qualifications.
+            {t.description}
           </p>
         </motion.div>
         <motion.div
@@ -59,7 +78,7 @@ export default function Resume() {
                 <div className="flex flex-row justify-center items-center">
                   <IconFileText className="w-8 h-8 text-emerald-500 dark:text-emerald-400 mr-3" />
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                    Paulo Farias - Resume
+                    Paulo Farias - CV
                   </h3>
                 </div>
                 {/* Buttons */}
@@ -99,10 +118,10 @@ export default function Resume() {
                 >
                   <div className="p-4 bg-gray-100 dark:bg-slate-700 border-b">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      Resume Preview
+                      {t.preview}
                     </h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Click -Download- for the full version
+                      {t.previewDescription}
                     </p>
                   </div>
 
