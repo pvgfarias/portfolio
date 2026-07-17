@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { IconMenu, IconXMark } from '@tabler/icons-react';
-import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
 import { useLanguage } from '../hooks/useLanguage';
@@ -50,12 +49,12 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link
-            href="/"
+          <button
+            onClick={() => handleNavClick('#home')}
             className="text-2xl font-bold text-gray-900  hover:text-emerald-500 dark:text-white transition-colors duration-200"
           >
             Paulo Farias
-          </Link>
+          </button>
           {/* Web Nav */}
           <div className="hidden md:flex space-x-8 justify-center items-center">
             {navLinks.map((link) => (
@@ -67,10 +66,12 @@ export default function Navbar() {
                 {language === 'en' ? link.name : link.ptName}
               </button>
             ))}
-            <ThemeToggle />
             <LanguageToggle />
+            <ThemeToggle />
           </div>
-          <div className="md:hidden">
+          <div className="md:hidden flex flex-row items-center justify-center gap-4">
+            <LanguageToggle />
+            <ThemeToggle />
             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 dark:text-gray-300">
               {isOpen ? <IconXMark size={24} /> : <IconMenu size={24} />}
             </button>
@@ -85,12 +86,12 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white-50 dark:bg-slate-800 rounded-lg mt-2 ">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-emerald-500 dark:bg-slate-800 rounded-lg mt-2 ">
               {navLinks.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link.href)}
-                  className="block w-full text-left px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-slate-400"
+                  className="block w-full text-left px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400"
                 >
                   {language === 'en' ? link.name : link.ptName}
                 </button>

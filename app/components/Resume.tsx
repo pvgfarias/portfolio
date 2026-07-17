@@ -16,21 +16,28 @@ const content = {
     title: 'Resume',
     description: 'Download or view my resume to learn more about my experience and qualifications.',
     preview: 'Resume Preview',
-    previewDescription: 'Click -Download- for the full version',
+    previewDescription: 'Click Download for the full version',
+    download: 'Download',
+    hide: 'Hide',
+    view: 'View',
+    open: 'Open',
   },
   pt: {
     title: 'Currículo',
     description:
       'Faça o download ou veja meu currículo para saber mais sobre minha experiência e qualificações.',
     preview: 'Prévia do Currículo',
-    previewDescription: 'Clique em -Download- para ver a versão completa',
+    previewDescription: 'Clique em Baixar para ver a versão completa',
+    download: 'Baixar',
+    hide: 'Esconder',
+    view: 'Ver',
+    open: 'Abrir',
   },
 };
 
 export default function Resume() {
   const [isViewing, setIsViewing] = useState(true);
   const ViewIcon = isViewing ? IconEyeClosed : IconEye;
-  const viewLabel = isViewing ? 'Hide' : 'View';
   const { language } = useLanguage();
   const t = content[language];
 
@@ -82,20 +89,20 @@ export default function Resume() {
                   </h3>
                 </div>
                 {/* Buttons */}
-                <div className="flex flex-row justify-center items-center gap-4">
+                <div className="flex flex-col md:flex-row flex-1 justify-center items-center gap-4">
                   <button
                     onClick={handleView}
                     className="flex items-center justify-center px-6 py-3 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition-all duration-200 "
                   >
                     <ViewIcon className="w-5 h-5 text-white mr-2" />
-                    {viewLabel}
+                    {isViewing ? t.hide : t.view}
                   </button>
                   <button
                     onClick={handleDownload}
                     className="flex items-center justify-center px-6 py-3 border-2 border-green-500 text-green-500 dark:border-emerald-400 dark:text-emerald-400 rounded-lg font-semibold hover:bg-green-500 hover:text-white dark:hover:bg-emerald-400 dark:hover:text-white transition-all duration-200"
                   >
                     <IconDownload className="w-5 h-5 mr-2" />
-                    Download
+                    {t.download}
                   </button>
                   <a
                     href="/resume.pdf"
@@ -103,7 +110,7 @@ export default function Resume() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center px-6 py-3 bg-slate-700 text-white rounded-lg font-semibold hover:bg-slate-600 transition-all duration-200"
                   >
-                    <IconExternalLink className="w-5 h-5 mr-2" /> Open
+                    <IconExternalLink className="w-5 h-5 mr-2" /> {t.open}
                   </a>
                 </div>
               </div>

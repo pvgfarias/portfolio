@@ -9,7 +9,7 @@ import { useLanguage } from '../hooks/useLanguage';
 
 const content = {
   en: {
-    title: 'Project',
+    title: 'Projects',
     description: 'Here are some recent projects showcasing my skills and experience',
   },
   pt: {

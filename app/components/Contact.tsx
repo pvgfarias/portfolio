@@ -4,11 +4,37 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { IconSend } from '@tabler/icons-react';
 import { contactInfo } from '../data/contactInfo';
+import { useLanguage } from '../hooks/useLanguage';
 
 type ContactFormData = {
   name: string;
   email: string;
   message: string;
+};
+
+const content = {
+  en: {
+    title: 'Contact',
+    subtitle: 'Get in touch with me',
+    connect: "Let's Connect",
+    connectMsg:
+      'Feel free to reach out about any projects, opportunities, if you want to collaborate, or just want to say hi. I would love to hear from you.',
+    name: 'Name',
+    message: 'Message',
+    sending: 'Sending',
+    sendMessage: 'Send Message',
+  },
+  pt: {
+    title: 'Contato',
+    subtitle: 'Entre em contato comigo',
+    connect: 'Vamos Conversar',
+    connectMsg:
+      'Fique à vontade para entrar em contato sobre projetos ou oportunidades, se quiser colaborar ou apenas quiser dar um "oi". Adoraria receber sua mensagem.',
+    name: 'Nome',
+    message: 'Mensagem',
+    sending: 'Enviando',
+    sendMessage: 'Enviar Mensagem',
+  },
 };
 
 export default function Contact() {
@@ -45,6 +71,9 @@ export default function Contact() {
     });
   };
 
+  const { language } = useLanguage();
+  const t = content[language];
+
   return (
     <section id="contact" className="py-20 bg-white-50 dark:bg-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,11 +85,9 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Contact
+            {t.title}
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Get in touch with me
-          </p>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">{t.subtitle}</p>
         </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <motion.div
@@ -69,13 +96,8 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-              Let&apos;s Connect
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-8">
-              Feel free to reach out about any projects, opportunities, if you want to collaborate,
-              or just want to say hi. I would love to hear from you.
-            </p>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t.connect}</h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-8">{t.connectMsg}</p>
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <motion.div
@@ -90,7 +112,9 @@ export default function Contact() {
                     <info.icon className="w-6 h-6 text-emerald-500 dark:text-white" />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900 dark:text-white">{info.label}</p>
+                    <p className="font-semibold text-gray-900 dark:text-white">
+                      {language === 'en' ? info.label : info.ptLabel}
+                    </p>
                     <a
                       href={info.href}
                       className="text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
@@ -116,7 +140,7 @@ export default function Contact() {
                 htmlFor="name"
                 className="block text-sm font-medium text-gray-70 dark:text-gray-300 mb-2"
               >
-                Name
+                {t.name}
               </label>
               <input
                 type="text"
@@ -150,7 +174,7 @@ export default function Contact() {
                 htmlFor="message"
                 className="block text-sm font-medium text-gray-70 dark:text-gray-300 mb-2"
               >
-                Message
+                {t.message}
               </label>
               <textarea
                 id="message"
@@ -171,12 +195,12 @@ export default function Contact() {
               {isSubmitting ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                  Sending...
+                  {t.sending}
                 </>
               ) : (
                 <>
                   <IconSend size={20} className="mr-2" />
-                  Send Message
+                  {t.sendMessage}
                 </>
               )}
             </button>

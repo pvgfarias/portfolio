@@ -101,7 +101,7 @@ export default function About() {
                   viewport={{ once: true }}
                   className="text-center"
                 >
-                  <div className="bg-gray-100 dark:bg-slate-800 rounded-lg p-4">
+                  <div className="flex flex-col items-center justify-center h-full bg-gray-100 dark:bg-slate-800 rounded-lg p-4">
                     <stat.icon className="w-8 h-8 text-emerald-500 dark:text-emerald-400 mx-auto mb-2" />
                     <div className="text-2xl font-bold text-gray-900 dark:text-white">
                       {stat.value}

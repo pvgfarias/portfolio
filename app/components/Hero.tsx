@@ -8,7 +8,7 @@ import { useLanguage } from '../hooks/useLanguage';
 
 const content = {
   en: {
-    intro: 'Hey there, I&apos;m ',
+    intro: "Hey there, I\'m ",
     roles: [
       'Full Stack Web Developer',
       'Data Analyst',

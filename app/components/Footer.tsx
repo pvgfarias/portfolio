@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { IconBrandGithub, IconBrandLinkedin, IconMail } from '@tabler/icons-react';
+import { useLanguage } from '../hooks/useLanguage';
 
 const socialLinks = [
   { name: 'GitHub', icon: IconBrandGithub, url: 'https://github.com/pvgfarias' },
@@ -10,14 +11,34 @@ const socialLinks = [
   { name: 'Email', icon: IconMail, url: 'mailto:pvgfarias@gmail.com' },
 ];
 
-const quickLinks = {
-  Home: '#home',
-  About: '#about',
-  Projects: '#projects',
-  Contact: '#contact',
+const quickLinks = [
+  { name: 'Home', ptName: 'Início', href: '#home' },
+  { name: 'About', ptName: 'Sobre', href: '#about' },
+  { name: 'Projects', ptName: 'Projetos', href: '#projects' },
+  { name: 'Contact', ptName: 'Contato', href: '#contact' },
+];
+
+const content = {
+  en: {
+    subtitle: 'Full Stack Developer passionate about creating amazing Web experiences.',
+    connect: 'Connect',
+    quickLinks: 'Quick Links',
+    rights: 'All Rights Reserved.',
+    links: ['Home', 'About', 'Projects', 'Contact'],
+  },
+  pt: {
+    subtitle: 'Desenvolvedor Full Stack apaixonado por criar experiências Web incríveis',
+    connect: 'Conectar',
+    quickLinks: 'Links Rápidos',
+    rights: 'Todos os Direitos Reservados.',
+    links: ['Início', 'Sobre', 'Projetos', 'Contato'],
+  },
 };
 
 export default function Footer() {
+  const { language } = useLanguage();
+  const t = content[language];
+
   return (
     <motion.footer
       initial={{ opacity: 0 }}
@@ -28,22 +49,20 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Paulo Iconrias</h3>
-            <p className="text-gray-900 dark:text-gray-400">
-              Full Stack Developer passionate about creating amazing Web experiences.
-            </p>
+            <h3 className="text-xl font-bold mb-4">Paulo Farias</h3>
+            <p className="text-gray-900 dark:text-gray-400">{t.subtitle}</p>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-bold mb-4">{t.quickLinks}</h4>
             <ul className="space-y-2">
-              {Object.entries(quickLinks).map(([label, url]) => (
-                <li key={label}>
+              {quickLinks.map((link) => (
+                <li key={link.name}>
                   <Link
-                    href={url}
+                    href={link.href}
                     className="text-gray-900 dark:text-gray-400 hover:text-white transition-colors"
                   >
-                    {label}
+                    {language === 'en' ? link.name : link.ptName}
                   </Link>
                 </li>
               ))}
@@ -51,7 +70,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-4">Connect</h4>
+            <h4 className="text-lg font-bold mb-4">{t.connect}</h4>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
                 <Link
@@ -69,7 +88,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-center">
           <p className="text-gray-900 dark:text-gray-400">
-            © {new Date().getFullYear()} Paulo Iconrias. All rights reserved.
+            © {new Date().getFullYear()} Paulo Farias. {t.rights}
           </p>
         </div>
       </div>
