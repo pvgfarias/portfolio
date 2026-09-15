@@ -40,6 +40,7 @@ export const skills = [
     technologies: [
       'Node.js',
       'Express',
+      'Java',
       'Serverless Function',
       'Rest APIs',
       'Prisma',
